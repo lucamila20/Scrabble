@@ -1,6 +1,6 @@
 #include <iostream>
-#ifndef ESTRUCTURA_DE_DATOS_OPTIONS_HXX
-#define ESTRUCTURA_DE_DATOS_OPTIONS_HXX
+#ifndef ENTREGA0ES_OPTIONS_HXX
+#define ENTREGA0ES_OPTIONS_HXX
 
 void configuracion_juego(){
     std:: string comando, aux;
@@ -109,4 +109,4 @@ void combinaciones_letras() {
     }while (comando != "salir");
 }
 
-#endif //ESTRUCTURA_DE_DATOS_OPTIONS_HXX
+#endif //ENTREGA0ES_OPTIONS_HXX
