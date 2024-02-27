@@ -3,6 +3,7 @@
 
 int main(){
     int opcion_menu = 0;
+	// toca arreglar la compilacion y el nuevo menu interactivo
     while (opcion_menu!=4) {
         std::cin >> opcion_menu;
         switch (opcion_menu) {
