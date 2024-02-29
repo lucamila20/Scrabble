@@ -1,11 +1,11 @@
-#include <iostream>
-#ifndef ENTREGA0ES_MENU_H
-#define ENTREGA0ES_MENU_H
+#ifndef ENTREGA1_COMANDOS_H
+#define ENTREGA1_COMANDOS_H
 
-void configuracion_juego();
-void busqueda_palabras();
-void combinaciones_letras();
+#include <string>
 
-#include "options.hxx"
+void configuracion_juego(std::string aux);
+void busqueda_palabras(std::string aux);
+void combinaciones_letras(std::string aux);
+void ayuda_comando();
 
-#endif //ENTREGA0ES_MENU_H
+#endif //ENTREGA1_COMANDOS_H
