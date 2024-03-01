@@ -1,40 +1,56 @@
-#include "comandos.h"
-#include <iostream>
+  #include <iostream>
+  #include <string>
+  #include <vector>
+  #include <sstream>
+  #include "comandos.h"
 
-int main() {
-    std::string comando;
-    std::string aux;
+  using namespace std;
 
-    while (true) {
-        std::cout << "$ ";
-        std::cin >> comando;
+  int main() {
 
-        if (comando == "ayuda_comando") {
-            ayuda_comando();
-        } else if (comando == "inicializar" || comando == "iniciar_inverso" || comando == "puntaje") {
-            std::cin >> aux;
-            configuracion_juego(aux);
-        } else if (comando == "iniciar_arbol" || comando == "iniciar_arbol_inverso" ||
-                   comando == "palabras_por_prefijo" || comando == "palabras_por_sufijo") {
-            std::cin >> aux;
-            busqueda_palabras(aux);
-        } else if (comando == "grafo_de_palabras" || comando == "posibles_palabras") {
-            if (comando == "posibles_palabras") {
-                std::cin >> aux;
-            } else {
-                aux = "";
-            }
-            combinaciones_letras(aux);
-        } else if (comando == "salir") {
-            std::cout << "Saliendo..." << std::endl;
-            break;
-        } else {
-            std::cout << "Comando desconocido. Escriba 'ayuda' para ver la lista de comandos disponibles." << std::endl;
-        }
-    }
+      string entrada;
+      string comando, parametro;
+      limpiarConsola();
+      string ayudaprueba;
+      int i=1;    
 
-    return 0;
-}
+      cout <<"Bienvenido al sistema de apoyo para el juego scrabble \n";
+
+      while(true) {
+    	
+	  std::cout << "$ ";
+          getline(cin, entrada);
+          stringstream str(entrada);
+
+          //Limpia las variables para que no retengan los valores por el ciclo
+          comando.clear();
+          parametro.clear();
+
+          getline(str, comando, ' ');
+          getline(str, parametro);
+
+
+          if (comando == "salir") {
+              cout<< "\nSaliendo del programa...\n";
+              break;
+          }
+          if(comando == "ayuda") {
+              if(parametro.empty()) {
+                  ayudaCompleta("ayuda", cmds);
+              } else {
+                  ayudaCompleta("ayuda " + parametro, cmds);
+              }
+          } else {
+              seleccionarComandos(entrada, cmds, parametro);
+          }
+          
+          cout <<"Bienvenido al sistema de apoyo para el juego scrabble \n";
+
+          }
+      }
+
+      return 0;
+  }
 
 void ayuda_comando() {
     std::cout << "Comandos configuracion del juego"<< std::endl;
