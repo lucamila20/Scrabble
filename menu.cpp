@@ -13,37 +13,34 @@ void elegirFuncion(int n, string parametro){
         //Configuración
         case 1:
             diccionarios.inicializar(parametro);
-            //diccionarios.imprimir();
+            diccionarios.imprimir();
             break;
         case 2:
             diccionarios.inicializar_reverso(parametro);
             break;
-            //Búsqueda
         case 3:
             diccionarios.puntaje(parametro);
             break;
         case 4:
-            iniciar_arbol();
+            //iniciar_arbol();
             break;
         case 5:
-            iniciar_arbol_inverso();
+            //iniciar_arbol_inverso();
             break;
         case 6:
-            palabras_por_prefijo();
+            //palabras_por_prefijo();
             break;
         case 7:
-            palabras_por_sufijo();
+            //palabras_por_sufijo();
             break;
         case 8:
-            grafo_de_palabras();
+            //grafo_de_palabras();
             break;
         case 9:
-            posibles_palabras();
+            //posibles_palabras();
             break;
     }
-
 }
-
 
 bool verificarParametro(const string& entrada) {
 
@@ -52,14 +49,12 @@ bool verificarParametro(const string& entrada) {
 
     // Intentar extraer dos palabras del flujo
     if (stream >> palabra1 && stream >> palabra2 && stream.eof()) {
-        //cout<<"Correcto Formato \n";
         return true;
     }else {
-        cout<<"\nError en la entrada. El comando esta mal escrito y/o le hace falta un parametro.\n";
+        cout <<"Error en la entrada. El comando esta mal escrito y/o le hace falta un parametro";
         return false;
     }
 }
-
 
 void seleccionarComandos(const string entrada, vector<comandos_struct> cmds, string parametro){
 
@@ -87,22 +82,18 @@ void seleccionarComandos(const string entrada, vector<comandos_struct> cmds, str
             i++;
         }
         if(!aux){
-            cout<<"\nError en la entrada. El comando esta mal escrito y/o le hace falta un parametro.\n";
+            cout<<"Error en la entrada. El comando esta mal escrito y/o le hace falta un parametro";
         }
-
     }
-
-
 }
 
 void ayudaCompleta(const string entrada, const vector<comandos_struct> cmds) {
 
     if(entrada == "ayuda") {
-        cout<<"\nLos comandos disponibles dentro del programa son:\n\n";
+        cout<<"Los comandos disponibles dentro del programa son:\n";
         for(size_t i = 0; i < cmds.size(); ++i) {
             cout << i+1 << ". " << cmds[i].nombre << "\n";
         }
-        cout<<"\n";
     } else {
         string comandoBuscado = entrada.substr(6);
         bool encontrado = false;
@@ -114,7 +105,7 @@ void ayudaCompleta(const string entrada, const vector<comandos_struct> cmds) {
             }
         }
         if(!encontrado) {
-            cout<< "\nNo se encontro el comando especificado\n";
+            cout << "\nNo se encontro el comando especificado\n";
         }
     }
 }
